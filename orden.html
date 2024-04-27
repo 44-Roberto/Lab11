@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Colocar Orden</title>
+</head>
+<body>
+<h1>Colocar Orden</h1>
+<form action="/orden/:usuarioId" method="post">
+    <input type="hidden" id="usuarioId" name="usuarioId" value="">
+<label for="tipoOrden">Tipo de orden:</label>
+<select name="tipoOrden" id="tipoOrden" required>
+<option value="Impresión">Impresión</option>
+<option value="Fotocopia">Fotocopia</option>
+</select><br>
+<label for="cantidad">Cantidad:</label>
+<input type="number" name="cantidad" id="cantidad" min="1" required><br>
+<button type="submit">Colocar orden</button>
+</form>
+
+<script>
+    // Obtener el parámetro de la URL y establecerlo en el campo oculto
+    document.getElementById('usuarioId').value = location.pathname.split('/').pop();
+</script>
+</body>
+</html>
